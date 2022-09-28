@@ -6,7 +6,7 @@ import SwiftUI
 
 /// A layout that arranges its subviews into rows.
 /// - Note: This layout always accepts its container proposed width.
-struct DIFlowLayout: Layout {
+public struct DIFlowLayout: Layout {
 
     // Implementation Notes
     // --------------------
@@ -16,7 +16,7 @@ struct DIFlowLayout: Layout {
 
     // TODO: Add baseline vertical alignment.
 
-    enum Direction {
+    public enum Direction {
 
         /// In this direction items flowed from left to right.
         case forward
@@ -26,37 +26,37 @@ struct DIFlowLayout: Layout {
     }
 
     /// An alignment position along a row's horizontal axis.
-    enum HorizontalAlignment {
+    public enum HorizontalAlignment {
         case leading
         case center
         case trailing
     }
 
     /// An alignment position along a row's vertical axis.
-    enum VerticalAlignment {
+    public enum VerticalAlignment {
         case top
         case center
         case bottom
     }
 
     /// The direction items flow within their row.
-    var direction: Direction
+    public var direction: Direction
 
     /// The horizontal alignment of items within their row.
-    var horizontalAlignment: HorizontalAlignment
+    public var horizontalAlignment: HorizontalAlignment
 
     /// The vertical alignment of items within their row.
-    var verticalAlignment: VerticalAlignment
+    public var verticalAlignment: VerticalAlignment
 
     /// The horizontal distance between adjacent subviews.
-    var horizontalSpacing: Double
+    public var horizontalSpacing: Double
 
     /// The vertical distance between adjacent rows.
-    var verticalSpacing: Double
+    public var verticalSpacing: Double
 
     // MARK: - Lifecycle
 
-    init(
+    public init(
         direction: Direction = .forward,
         horizontalAlignment: HorizontalAlignment = .leading,
         verticalAlignment: VerticalAlignment = .top,
@@ -72,7 +72,7 @@ struct DIFlowLayout: Layout {
 
     // MARK: - Layout
 
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) -> CGSize {
+    public func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) -> CGSize {
         // TODO: Ensure padding is never larger than the bounds.
         let proposedSize = proposal.replacingUnspecifiedDimensions(by: .zero)
         let bounds = CGRect(origin: .zero, size: proposedSize)
@@ -80,7 +80,7 @@ struct DIFlowLayout: Layout {
         return .init(width: layout.width, height: layout.height)
     }
 
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) {
+    public func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) {
         let layout = computeLayout(in: bounds, subviews: subviews, direction: direction)
         layout.subviewLayouts.forEach { (subview, origin) in
             subview.place(at: origin, anchor: .topLeading,  proposal: proposal)
