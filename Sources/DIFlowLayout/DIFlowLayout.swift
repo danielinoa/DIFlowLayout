@@ -4,7 +4,8 @@
 
 import SwiftUI
 
-/// A layout that arranges its subviews into rows.
+/// A layout where subviews are arranged horizontally and wrapped vertically,
+/// similar to how text behaves in a multiline label.
 /// - Note: This layout always accepts its container proposed width.
 public struct DIFlowLayout: Layout {
 
@@ -14,41 +15,41 @@ public struct DIFlowLayout: Layout {
     // subviews' intrinsic size, and spacing values.
     // Subviews, once grouped into rows, can be vertically and horizontally aligned within their row.
 
-    // TODO: Add baseline vertical alignment.
-
+    /// The direction items flow within a row.
     public enum Direction {
 
-        /// In this direction items flowed from left to right.
+        /// In this direction items flow from left to right.
         case forward
 
-        /// In this direction items flowed from right to left.
+        /// In this direction items flow from right to left.
         case reverse
     }
 
-    /// An alignment position along a row's horizontal axis.
+    /// The horizontal alignment of items within a row.
     public enum HorizontalAlignment {
         case leading
         case center
         case trailing
     }
 
-    /// An alignment position along a row's vertical axis.
+    /// The vertical alignment of items within a row.
     public enum VerticalAlignment {
         case top
         case center
         case bottom
+        // TODO: Add baseline vertical alignment.
     }
 
-    /// The direction items flow within their row.
+    /// The direction items flow within a row.
     public var direction: Direction
 
-    /// The horizontal alignment of items within their row.
+    /// The horizontal alignment of items within a row.
     public var horizontalAlignment: HorizontalAlignment
 
-    /// The vertical alignment of items within their row.
+    /// The vertical alignment of items within a row.
     public var verticalAlignment: VerticalAlignment
 
-    /// The horizontal distance between adjacent subviews.
+    /// The horizontal distance between adjacent subviews within a row.
     public var horizontalSpacing: Double
 
     /// The vertical distance between adjacent rows.
@@ -193,10 +194,10 @@ public struct DIFlowLayout: Layout {
         /// The height of the largest subview within the row.
         var height: Double = .zero
 
-        var items: [SubviewAndSize] = []
-
         /// The sum of all the subviews' widths. This does not include any interim spacing.
         var subviewsWidth: Double = .zero
+
+        var items: [SubviewAndSize] = []
     }
 
     private struct LayoutInfo {
