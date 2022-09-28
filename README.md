@@ -1,6 +1,6 @@
 # DIFlowLayout
 
-**`DIFlowLayout`** is a [`SwiftUI Layout`](https://developer.apple.com/documentation/swiftui/layout) implementation where elements flow horizontally and wrap vertically, similar to how text behaves in a multiline label. 
+**`DIFlowLayout`** is a [`SwiftUI Layout`](https://developer.apple.com/documentation/swiftui/layout) implementation where subviews are arranged horizontally and wrapped vertically, similar to how text behaves in a multiline label. 
 
 `DIFlowLayout` works by first grouping subviews into rows based on the proposed container width, subviews' intrinsic size, and spacing values.
 Subviews, once grouped into rows, can be vertically and horizontally aligned within their row.
