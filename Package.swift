@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "DIFlowLayout",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
+        .macOS(.v13)
     ],
     products: [
         .library(name: "DIFlowLayout", targets: ["DIFlowLayout"]),
