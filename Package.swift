@@ -12,8 +12,11 @@ let package = Package(
     products: [
         .library(name: "DIFlowLayout", targets: ["DIFlowLayout"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/danielinoa/DIFlowLayoutEngine", branch: "main")
+    ],
     targets: [
-        .target(name: "DIFlowLayout", dependencies: []),
+        .target(name: "DIFlowLayout", dependencies: ["DIFlowLayoutEngine"]),
         .testTarget(name: "DIFlowLayoutTests", dependencies: ["DIFlowLayout"]),
     ]
 )
