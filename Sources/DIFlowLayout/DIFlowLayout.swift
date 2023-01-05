@@ -64,7 +64,7 @@ public struct DIFlowLayout: Layout {
         }
         let proposedSize = proposal.replacingUnspecifiedDimensions(by: .zero)
         let bounds = DIFlowLayoutEngine.Rectangle(
-            x: .zero, y: .zero, width: proposedSize.width, height: proposedSize.height
+            x: bounds.minX, y: bounds.minY, width: bounds.width, height: bounds.height
         )
         let layout = engine.position(of: rects, in: bounds)
         zip(subviews, layout.positions).forEach { subview, position in
