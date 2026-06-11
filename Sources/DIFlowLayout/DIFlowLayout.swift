@@ -53,7 +53,7 @@ public struct DIFlowLayout: SwiftUI.Layout, Sendable {
     // MARK: - Cache
 
     /// Values computed in `sizeThatFits` and reused in `placeSubviews`.
-    public struct Cache {
+    public struct Cache: Sendable {
 
         /// The ideal size of each subview, measured with an unspecified proposal.
         var idealSizes: [CGSize]

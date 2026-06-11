@@ -9,12 +9,12 @@ jobs:
   test-macos:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: swift build -v
       - run: swift test -v
 
   build-ios:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: xcodebuild build -scheme DIFlowLayout -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO
