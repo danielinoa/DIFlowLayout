@@ -1,14 +1,15 @@
 {
+  "originHash" : "2eab431a0c590ef87f856c54bd87b957836093eee1e51dd17ff81f22ee8d659d",
   "pins" : [
     {
       "identity" : "diflowlayoutengine",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danielinoa/DIFlowLayoutEngine",
       "state" : {
-        "branch" : "main",
-        "revision" : "09157afcebb6d0b00b8920b104efe15a1f6409d6"
+        "revision" : "783fe56f7b08231c7588c7d829d21242dcd49957",
+        "version" : "1.0.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
