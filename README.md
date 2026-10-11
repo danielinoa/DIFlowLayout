@@ -24,7 +24,7 @@ struct TagsView: View {
     let tags: [String]
 
     var body: some View {
-        DIFlowLayout(horizontalSpacing: 8, verticalSpacing: 8) {
+        DIFlowLayout(spacing: 8) {
             ForEach(tags, id: \.self) { tag in
                 Text(tag)
                     .padding(.horizontal, 12)
@@ -36,7 +36,7 @@ struct TagsView: View {
 }
 ```
 
-The initializer accepts the flow direction, horizontal and vertical alignment within each row, and horizontal and vertical spacing:
+Use `init(spacing:)` to apply the same spacing between items and between rows. The full initializer accepts the flow direction, horizontal and vertical alignment within each row, and separate horizontal and vertical spacing:
 
 ```swift
 DIFlowLayout(
@@ -60,7 +60,7 @@ DIFlowLayout(
 To install using Swift Package Manager, add this to the dependencies section in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/danielinoa/DIFlowLayout.git", from: "1.0.3")
+.package(url: "https://github.com/danielinoa/DIFlowLayout.git", from: "1.1.0")
 ```
 
 Or in Xcode, add the package via **File → Add Package Dependencies…** using the URL above.

@@ -40,6 +40,21 @@ struct DIFlowLayoutTests {
         #expect(renderedSize(of: view, proposedWidth: 120) == CGSize(width: 120, height: 45))
     }
 
+    @Test func `uniform spacing contributes to ideal width`() {
+        // 3 blocks of 50×20 with two 10-point gaps occupy a single row of width 170.
+        let view = DIFlowLayout(spacing: 10) { blocks(3) }
+        #expect(renderedSize(of: view) == CGSize(width: 170, height: 20))
+    }
+
+    @Test func `uniform spacing controls wrapping and row gaps`() {
+        let view = DIFlowLayout(spacing: 10) { blocks(3) }
+
+        // At width 105, the horizontal gap forces one block per row: 3×20 + 2×10 = 80 tall.
+        #expect(renderedSize(of: view, proposedWidth: 105) == CGSize(width: 105, height: 80))
+        // At width 110, two blocks fit exactly, leaving two rows: 2×20 + 10 = 50 tall.
+        #expect(renderedSize(of: view, proposedWidth: 110) == CGSize(width: 110, height: 50))
+    }
+
     @Test func `includes spacing in ideal width`() {
         // 3 blocks of 50×20 with spacing 10 in a single row: 150 + 20 = 170 wide.
         let view = DIFlowLayout(horizontalSpacing: 10) { blocks(3) }

@@ -27,6 +27,12 @@ public struct DIFlowLayout: SwiftUI.Layout, Sendable {
 
     // MARK: - Lifecycle
 
+    /// Creates a flow layout with the same horizontal and vertical spacing.
+    /// - Parameter spacing: The distance between adjacent items within a row and between rows.
+    public init(spacing: Double) {
+        self.init(horizontalSpacing: spacing, verticalSpacing: spacing)
+    }
+
     /// Creates a flow layout.
     /// - Parameters:
     ///   - direction: The direction items flow within a row.
